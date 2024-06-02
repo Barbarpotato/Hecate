@@ -1,0 +1,28 @@
+{
+  "name": "hecate",
+  "module": "index.js",
+  "type": "module",
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "scripts": {
+    "start": "bun run index.js",
+    "postinstall": "prisma generate",
+    "build": "bun run postinstall && next build"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.14.0",
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "express-graphql": "^0.12.0",
+    "firebase-admin": "^12.1.1",
+    "graphql": "^16.8.1",
+    "mysql2": "^3.10.0",
+    "prisma": "^5.14.0",
+    "socket.io": "^4.7.5",
+    "url": "^0.11.3"
+  }
+}

@@ -1,0 +1,25 @@
+<%- include('components/header', { title: 'Home Page' }) %>
+
+    <h1>Real-time Notes</h1>
+    <div id="notes"></div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        const socket = io();
+
+        socket.on('updateNotes', (notes) => {
+            console.log(notes)
+            const notesDiv = document.getElementById('notes');
+            notesDiv.innerHTML = ''; // Clear existing notes
+
+            for (let key in notes) {
+
+                const note = notes[key];
+                const noteElement = document.createElement('div');
+                noteElement.textContent = `${note}`;
+                notesDiv.appendChild(noteElement);
+            }
+        });
+    </script>
+
+    <%- include('components/footer') %>
